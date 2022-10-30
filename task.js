@@ -69,7 +69,7 @@ function start() {
 document.querySelector('.time_btns_start').addEventListener('click', () => {
    clearInterval(interval)
    interval = setInterval(start, 10)
-
+   vv.style.display = 'block'
 })
 document.querySelector('.time_btns_stop').addEventListener('click',() => {
    clearInterval(interval)
@@ -84,27 +84,30 @@ document.querySelector('.time_btns_reset').addEventListener('click', () => {
    time_minute.innerHTML = minute
    time_second.innerHTML = second
    time_millisecond.innerHTML = millisecond
+   vv.style.display = 'none'
+   checks.innerHTML = ''
 })
 
 let checks = document.querySelector('.checks')
-document.querySelector('.time_btns_check').addEventListener('click',() => {
+let vv = document.querySelector('.time_btns_check') 
+vv.addEventListener('click',() => {
 
-   if (second <= 9 && second >= 1){
+   if (second <= 9 && second > 0){
       newsecond = '0' + second
    } else {
       newsecond = second
    }
-   if (minute <= 9 && minute >= 1){
+   if (minute <= 9 && minute > 0){
       newminute = '0' + minute
    } else {
       newminute = minute
    }
-   if (millisecond <= 9 && millisecond >= 1){
+   if (millisecond <= 9 && millisecond > 0){
       newmillisecond = '0' + millisecond
    } else {
       newmillisecond = millisecond
    }
-   if (hour <= 9 && hour >= 1){
+   if (hour <= 9 && hour > 0){
       newhour = '0' + hour
    } else {
       newhour = hour
@@ -114,7 +117,6 @@ document.querySelector('.time_btns_check').addEventListener('click',() => {
    b.append(newhour + ':' + newminute + ':' + newsecond + ':' + newmillisecond)
    checks.append(b)
 })
-
 
 
 

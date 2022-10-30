@@ -35,8 +35,11 @@ button{
 .checks{
    padding-top: 15px;
    display: flex;
+   flex-wrap: wrap;
    flex-direction: column;
-   width: 1000px;
    color: white;
    font-size: 30px;
+}
+.time_btns_check{
+   display: none;
 }
