@@ -10,7 +10,7 @@ let time = document.querySelector('.time')
 
 time.innerHTML = `<div>
                   <span class='time_hour'>${hour} </span>
-                  : <span class='time_minute'>${minute} </span>:
+                  : <span class='time_minute'>${minute} </span> :
                   <span class='time_second'>${second}</span> :
                   <span class='time_millisecond'>${millisecond}</span>
                   </div>`
@@ -21,35 +21,6 @@ let aa = document.querySelector('.time_hour')
 let bb = document.querySelector('.time_minute') 
 let cc = document.querySelector('.time_second') 
 let dd = document.querySelector('.time_millisecond') 
-
-
-
-
-
-// let a = setInterval(() => {
-//    hour++
-//   if (hour <= 9){
-//      aa.innerHTML = '0' + hour
-//   } else {
-//      aa.innerHTML = hour
-//   }
-// }, 3600000)
-
-
-// let b = setInterval(() => {
-//    minute++
-//   if(minute > 58){
-//    minute = 0
-//   }
-//   if (minute <= 9){
-//      bb.innerHTML = '0' + minute
-//   } else {
-//      bb.innerHTML = minute
-//   }
-// }, 60000)
-
-
-
 
 
 
@@ -67,7 +38,7 @@ function start() {
      dd.innerHTML = millisecond
    }
 
-   if(second > 2){
+   if(second > 59){
       second = '00'
       minute++
       cc.innerHTML = '0' + 0
@@ -78,7 +49,7 @@ function start() {
       cc.innerHTML = second
    }
 
-   if(minute > 2){
+   if(minute > 59){
       minute = '00'
       hour++
       bb.innerHTML = '0' + 0
@@ -109,6 +80,7 @@ document.querySelector('.time_btns_stop').addEventListener('click',() => {
    clearInterval(interval)
 })
 document.querySelector('.time_btns_reset').addEventListener('click', () => {
+   clearInterval(interval)
    minute = '00'
    second = '00'
    millisecond = '00'
